@@ -69,16 +69,18 @@ export default function App() {
 
         <Box sx={{ mb: 2 }}>
           <Autocomplete
+            data-testid="s1-film-autocomplete"
             value={s1.value}
             onChange={(event, newValue) => setS1((p) => ({ ...p, value: newValue }))}
             options={top100Films}
             getOptionLabel={(option) => option.title}
-            renderInput={(params) => <TextField {...params} label="Choose a film" />}
+            renderInput={(params) => <TextField {...params} label="Choose a film" data-testid="s1-film-input" />}
           />
         </Box>
 
         <Box sx={{ mb: 2 }}>
           <TextField
+            data-testid="s1-text-field"
             label="Text for section 1"
             variant="outlined"
             fullWidth
@@ -89,28 +91,28 @@ export default function App() {
 
         <Box sx={{ mb: 2 }}>
           <FormControlLabel
-            control={<Checkbox checked={s1.checked} onChange={(e) => setS1((p) => ({ ...p, checked: e.target.checked }))} />}
+            control={<Checkbox data-testid="s1-checkbox" checked={s1.checked} onChange={(e) => setS1((p) => ({ ...p, checked: e.target.checked }))} />}
             label={s1.checked ? 'Checked' : 'Unchecked'}
           />
         </Box>
 
         <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
-          <Button variant="contained" onClick={() => validateSection('s1')}>
+          <Button data-testid="s1-validate-btn" variant="contained" onClick={() => validateSection('s1')}>
             Validate
           </Button>
-          <Button variant="outlined" onClick={() => resetSection('s1')}>
+          <Button data-testid="s1-reset-btn" variant="outlined" onClick={() => resetSection('s1')}>
             Reset
           </Button>
         </Stack>
 
         {errors.s1 && (
-          <Alert severity="error" sx={{ mt: 1 }}>
+          <Alert data-testid="s1-error-alert" severity="error" sx={{ mt: 1 }}>
             {errors.s1}
           </Alert>
         )}
 
         {success.s1 && (
-          <Alert severity="success" sx={{ mt: 1 }}>
+          <Alert data-testid="s1-success-alert" severity="success" sx={{ mt: 1 }}>
             Section 1 is valid
           </Alert>
         )}
@@ -126,16 +128,18 @@ export default function App() {
 
         <Box sx={{ mb: 2 }}>
           <Autocomplete
+            data-testid="s2-film-autocomplete"
             value={s2.value}
             onChange={(event, newValue) => setS2((p) => ({ ...p, value: newValue }))}
             options={top100Films}
             getOptionLabel={(option) => option.title}
-            renderInput={(params) => <TextField {...params} label="Choose a film" />}
+            renderInput={(params) => <TextField {...params} label="Choose a film" data-testid="s2-film-input" />}
           />
         </Box>
 
         <Box sx={{ mb: 2 }}>
           <TextField
+            data-testid="s2-text-field"
             label="Text for section 2"
             variant="outlined"
             fullWidth
@@ -146,28 +150,28 @@ export default function App() {
 
         <Box sx={{ mb: 2 }}>
           <FormControlLabel
-            control={<Checkbox checked={s2.checked} onChange={(e) => setS2((p) => ({ ...p, checked: e.target.checked }))} />}
+            control={<Checkbox data-testid="s2-checkbox" checked={s2.checked} onChange={(e) => setS2((p) => ({ ...p, checked: e.target.checked }))} />}
             label={s2.checked ? 'Checked' : 'Unchecked'}
           />
         </Box>
 
         <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
-          <Button variant="contained" onClick={() => validateSection('s2')}>
+          <Button data-testid="s2-validate-btn" variant="contained" onClick={() => validateSection('s2')}>
             Validate
           </Button>
-          <Button variant="outlined" onClick={() => resetSection('s2')}>
+          <Button data-testid="s2-reset-btn" variant="outlined" onClick={() => resetSection('s2')}>
             Reset
           </Button>
         </Stack>
 
         {errors.s2 && (
-          <Alert severity="error" sx={{ mt: 1 }}>
+          <Alert data-testid="s2-error-alert" severity="error" sx={{ mt: 1 }}>
             {errors.s2}
           </Alert>
         )}
 
         {success.s2 && (
-          <Alert severity="success" sx={{ mt: 1 }}>
+          <Alert data-testid="s2-success-alert" severity="success" sx={{ mt: 1 }}>
             Section 2 is valid
           </Alert>
         )}
