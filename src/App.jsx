@@ -40,7 +40,7 @@ export default function App() {
   function validateSection(which) {
     const sec = which === 's1' ? s1 : s2
     const problems = []
-    if (!sec.value) problems.push(which === 's1' ? 'Please choose a film' : 'Please choose a session')
+    if (!sec.value) problems.push(which === 's1' ? 'Please choose a film' : 'Please choose a Season')
     if (!sec.text || !sec.text.trim()) problems.push('Review field is required')
     // Disallow special characters: only letters, numbers and spaces allowed
     const allowedRegex = /^[A-Za-z0-9\s]+$/
