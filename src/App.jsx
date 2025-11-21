@@ -106,7 +106,7 @@ export default function App() {
 
         <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
           <Button data-testid="s1-validate-btn" variant="contained" onClick={() => validateSection('s1')}>
-            Validate
+            Submit
           </Button>
           <Button data-testid="s1-reset-btn" variant="outlined" onClick={() => resetSection('s1')}>
             Reset
@@ -165,7 +165,7 @@ export default function App() {
 
         <Stack direction="row" spacing={2} sx={{ mb: 2 }}>
           <Button data-testid="s2-validate-btn" variant="contained" onClick={() => validateSection('s2')}>
-            Validate
+            Submit
           </Button>
           <Button data-testid="s2-reset-btn" variant="outlined" onClick={() => resetSection('s2')}>
             Reset
@@ -180,7 +180,7 @@ export default function App() {
 
         {success.s2 && (
           <Alert data-testid="s2-success-alert" severity="success" sx={{ mt: 1 }}>
-            Section 2 is valid
+            Season Review is valid
           </Alert>
         )}
       </Box>
