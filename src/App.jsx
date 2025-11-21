@@ -21,6 +21,14 @@ const top100Films = [
   { title: "Schindler's List", year: 1993 }
 ]
 
+const top100seasons = [
+  { title: 'Wednesday', year: 1994 },
+  { title: 'Stranger Things', year: 1972 },
+  { title: 'Squid Game', year: 2008 },
+  { title: 'The Witcher', year: 1957 },
+  { title: "Daredevil", year: 1993 }
+]
+
 const initialState = { checked: false, value: null, text: '' }
 
 export default function App() {
@@ -33,7 +41,7 @@ export default function App() {
     const sec = which === 's1' ? s1 : s2
     const problems = []
     if (!sec.value) problems.push('Please choose a film')
-    if (!sec.text || !sec.text.trim()) problems.push('Text field is required')
+    if (!sec.text || !sec.text.trim()) problems.push('Review field is required')
     // Disallow special characters: only letters, numbers and spaces allowed
     const allowedRegex = /^[A-Za-z0-9\s]+$/
     if (sec.text && !allowedRegex.test(sec.text)) problems.push('Text contains invalid characters (only letters, numbers and spaces allowed)')
@@ -58,13 +66,13 @@ export default function App() {
   return (
     <Container maxWidth="md" sx={{ mt: 6 }}>
       <Typography variant="h4" component="h1" gutterBottom>
-        Validation Demo — Two Sections
+        Mainteny — QA Demo
       </Typography>
 
       {/* Section 1 */}
       <Box sx={{ mb: 4, p: 3, background: '#fff', borderRadius: 1, boxShadow: 1 }}>
         <Typography variant="h6" gutterBottom>
-          Section 1
+          Film Review 
         </Typography>
 
         <Box sx={{ mb: 2 }}>
@@ -81,7 +89,7 @@ export default function App() {
         <Box sx={{ mb: 2 }}>
           <TextField
             data-testid="s1-text-field"
-            label="Text for section 1"
+            label="Write your review"
             variant="outlined"
             fullWidth
             value={s1.text}
@@ -92,7 +100,7 @@ export default function App() {
         <Box sx={{ mb: 2 }}>
           <FormControlLabel
             control={<Checkbox data-testid="s1-checkbox" checked={s1.checked} onChange={(e) => setS1((p) => ({ ...p, checked: e.target.checked }))} />}
-            label={s1.checked ? 'Checked' : 'Unchecked'}
+            label={s1.checked ? 'Terms and Conditions (accepted)' : 'Terms and Conditions (not accepted)'}
           />
         </Box>
 
@@ -113,7 +121,7 @@ export default function App() {
 
         {success.s1 && (
           <Alert data-testid="s1-success-alert" severity="success" sx={{ mt: 1 }}>
-            Section 1 is valid
+            Film Review is valid
           </Alert>
         )}
       </Box>
@@ -123,7 +131,7 @@ export default function App() {
       {/* Section 2 */}
       <Box sx={{ mb: 4, p: 3, background: '#fff', borderRadius: 1, boxShadow: 1 }}>
         <Typography variant="h6" gutterBottom>
-          Section 2
+          Season Review
         </Typography>
 
         <Box sx={{ mb: 2 }}>
@@ -131,16 +139,16 @@ export default function App() {
             data-testid="s2-film-autocomplete"
             value={s2.value}
             onChange={(event, newValue) => setS2((p) => ({ ...p, value: newValue }))}
-            options={top100Films}
+            options={top100seasons}
             getOptionLabel={(option) => option.title}
-            renderInput={(params) => <TextField {...params} label="Choose a film" data-testid="s2-film-input" />}
+            renderInput={(params) => <TextField {...params} label="Choose a Season" data-testid="s2-film-input" />}
           />
         </Box>
 
         <Box sx={{ mb: 2 }}>
           <TextField
             data-testid="s2-text-field"
-            label="Text for section 2"
+            label="Write your review"
             variant="outlined"
             fullWidth
             value={s2.text}
@@ -151,7 +159,7 @@ export default function App() {
         <Box sx={{ mb: 2 }}>
           <FormControlLabel
             control={<Checkbox data-testid="s2-checkbox" checked={s2.checked} onChange={(e) => setS2((p) => ({ ...p, checked: e.target.checked }))} />}
-            label={s2.checked ? 'Checked' : 'Unchecked'}
+            label={s2.checked ? 'Terms and Conditions (accepted)' : 'Terms and Conditions (not accepted)'}
           />
         </Box>
 
