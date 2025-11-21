@@ -185,15 +185,7 @@ export default function App() {
         )}
       </Box>
 
-      <Box sx={{ mt: 3 }}>
-        <Typography variant="subtitle1">Current values</Typography>
-        <Typography variant="body2" color="text.secondary">
-          Section 1: checked={String(s1.checked)} — selected={s1.value ? s1.value.title : 'none'} — text="{s1.text}"
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Section 2: checked={String(s2.checked)} — selected={s2.value ? s2.value.title : 'none'} — text="{s2.text}"
-        </Typography>
-      </Box>
+      
     </Container>
   )
 }
